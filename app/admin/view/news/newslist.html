@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<body>
+    <p>
+        <a href="">添加新闻</a>
+    </p>
+
+    <table border=1>
+        <thead>
+        <tr>
+            <td>序号</td>
+            <td>ID</td>
+            <td>新闻标题</td>
+            <td>新闻简介</td>
+            <td>添加时间</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+		{*<?p hp foreach($datas as $datas_key=>$datas_val){ ?>
+        <tr>
+            <td><?php echo $datas_key+1; ?></td>
+            <td><?php echo $datas_val['id']; ?></td>
+            <td><?php echo $datas_val['title']; ?></td>
+            <td><?php echo $datas_val['intro']; ?></td>
+            <td><?php echo date('Y-m-d H:i:s', $datas_val['post_date']); ?></td>
+            <td>
+                <a href="">编辑新闻</a>
+                <a href="">删除新闻</a>
+            </td>
+        </tr>
+		<?php } ?> *}
+		{foreach from=$datas key="datas_key" item="datas_val" name="f1"}
+		<tr>
+            <td>{$smarty.foreach.f1.iteration}</td>
+            <td>{$datas_val.id}</td>
+            <td>{$datas_val.title}</td>
+            <td>{$datas_val.intro}</td>
+            <td>{$datas_val.post_date|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+            <td>
+                <a href="">编辑新闻</a>
+                <a href="">删除新闻</a>
+            </td>
+        </tr>
+		{/foreach}
+        <!-- <tr> -->
+            <!-- <td>2</td> -->
+            <!-- <td>22</td> -->
+            <!-- <td>title2</td> -->
+            <!-- <td>intro2</td> -->
+            <!-- <td>post_date2</td> -->
+            <!-- <td> -->
+                <!-- <a href="">编辑新闻</a> -->
+                <!-- <a href="">删除新闻</a> -->
+            <!-- </td> -->
+        <!-- </tr> -->
+        </tbody>
+    </table>
+
+</body>
+</HTML>
